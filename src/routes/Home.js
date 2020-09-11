@@ -21,16 +21,25 @@ const Home = ({ userObj }) => {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    // 스토리지 분기시작을 유저의 ID 로 구별하고, 이름은 랜덤하게
-    const fileRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
-    // onFileChange 에서 DATA_URL 포맷으로 저장하는 걸 맞춰줌
-    const response = await fileRef.putString(attachment, 'data_url');
-    // await dbService.collection('tweets').add({
-    //   text: tweet,
-    //   createdAt: Date.now(),
-    //   createdId: userObj.uid,
-    // });
-    // setTweet('');
+    let attachmentUrl = '';
+    if (attachment !== '') {
+      // 스토리지 분기시작을 유저의 ID 로 구별하고, 이름은 랜덤하게
+      const attachmentRef = storageService.ref().child(`${userObj.uid}/${uuidv4()}`);
+      // onFileChange 에서 DATA_URL 포맷으로 저장하는 걸 맞춰줌
+      const response = await attachmentRef.putString(attachment, 'data_url');
+      // https://firebase.google.com/docs/reference/js/firebase.storage.Reference?hl=en#getdownloadurl
+      attachmentUrl = await response.ref.getDownloadURL();
+    }
+    const tweetObj = {
+      text: tweet,
+      createdAt: Date.now(),
+      createdId: userObj.uid,
+      attachmentUrl,
+    };
+    await dbService.collection('tweets').add(tweetObj);
+
+    setTweet('');
+    setAttachment('');
   };
 
   const onChange = (event) => {
@@ -53,7 +62,6 @@ const Home = ({ userObj }) => {
       const {
         currentTarget: { result },
       } = finishEvent;
-
       setAttachment(result);
     };
     reader.readAsDataURL(theFile);
