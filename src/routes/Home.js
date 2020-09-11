@@ -1,8 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { dbService } from 'fbase';
 
 const Home = () => {
   const [tweet, setTweet] = useState('');
+  const [tweets, setTweets] = useState([]);
+
+  useEffect(() => {
+    getTweets();
+  }, []);
+
+  const getTweets = async () => {
+    const dbTweets = await dbService.collection('tweets').get(); // tweets 이름의 컬렉션을 가지고옴
+    dbTweets.forEach((document) => {
+      const tweetObject = {
+        ...document.data(),
+        id: document.id,
+      };
+      setTweets((prev) => [tweetObject, ...prev]);
+    });
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     await dbService.collection('tweets').add({
@@ -19,6 +36,8 @@ const Home = () => {
     setTweet(value);
   };
 
+  console.log(tweets);
+
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -31,6 +50,13 @@ const Home = () => {
         ></input>
         <input type="submit" value="tweet" />
       </form>
+      <div>
+        {tweets.map((tomato) => (
+          <div key={tomato.id}>
+            <h4>{tomato.tweet}</h4>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
