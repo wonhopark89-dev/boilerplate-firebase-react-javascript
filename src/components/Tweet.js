@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { dbService } from 'fbase';
+import { dbService, storageService } from 'fbase';
 
 const Tweet = ({ tweetObj, isOwner }) => {
   // tweet 내용 삭제 및 변경
@@ -12,6 +12,8 @@ const Tweet = ({ tweetObj, isOwner }) => {
       // https://firebase.google.com/docs/firestore/manage-data/delete-data#top_of_page
       // console.log(tweetObj);
       await dbService.doc(`tweets/${tweetObj.id}`).delete(); // collection id, 앞에서 넣어줬기 때문
+      // storage 에 파일이름은 uuid(=랜덤) 으로 만들어서 알수없지만, 참조하고있는 값을 통해 삭제할 수 있다 ( 해당 값만 )
+      await storageService.refFromURL(tweetObj.attachmentUrl).delete();
     }
   };
 
