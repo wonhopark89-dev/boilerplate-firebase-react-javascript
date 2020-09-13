@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/boilerplate-firebase-react-javascript/static/css/main.dda8c52d.chunk.css",
-    "main.js": "/boilerplate-firebase-react-javascript/static/js/main.506e8ade.chunk.js",
-    "main.js.map": "/boilerplate-firebase-react-javascript/static/js/main.506e8ade.chunk.js.map",
+    "main.js": "/boilerplate-firebase-react-javascript/static/js/main.ac0179dc.chunk.js",
+    "main.js.map": "/boilerplate-firebase-react-javascript/static/js/main.ac0179dc.chunk.js.map",
     "runtime-main.js": "/boilerplate-firebase-react-javascript/static/js/runtime-main.6e3355e6.js",
     "runtime-main.js.map": "/boilerplate-firebase-react-javascript/static/js/runtime-main.6e3355e6.js.map",
     "static/js/2.05ca2707.chunk.js": "/boilerplate-firebase-react-javascript/static/js/2.05ca2707.chunk.js",
     "static/js/2.05ca2707.chunk.js.map": "/boilerplate-firebase-react-javascript/static/js/2.05ca2707.chunk.js.map",
     "index.html": "/boilerplate-firebase-react-javascript/index.html",
-    "precache-manifest.3866bfa8908704c52555caae1675c31f.js": "/boilerplate-firebase-react-javascript/precache-manifest.3866bfa8908704c52555caae1675c31f.js",
+    "precache-manifest.316fd1d26dbef7055e3a6964b0b786ae.js": "/boilerplate-firebase-react-javascript/precache-manifest.316fd1d26dbef7055e3a6964b0b786ae.js",
     "service-worker.js": "/boilerplate-firebase-react-javascript/service-worker.js",
     "static/css/main.dda8c52d.chunk.css.map": "/boilerplate-firebase-react-javascript/static/css/main.dda8c52d.chunk.css.map",
     "static/js/2.05ca2707.chunk.js.LICENSE.txt": "/boilerplate-firebase-react-javascript/static/js/2.05ca2707.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.6e3355e6.js",
     "static/js/2.05ca2707.chunk.js",
     "static/css/main.dda8c52d.chunk.css",
-    "static/js/main.506e8ade.chunk.js"
+    "static/js/main.ac0179dc.chunk.js"
   ]
 }
