@@ -17,6 +17,7 @@ function App() {
           updateProfile: (args) => user.updateProfile(args),
         });
       } else {
+        setUserObj(null);
       }
       setInit(true);
     });
@@ -38,7 +39,7 @@ function App() {
       ) : (
         'Initializing...'
       )}
-      <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
+      <footer>&copy; {new Date().getFullYear()} Twitter</footer>
     </>
   );
 }

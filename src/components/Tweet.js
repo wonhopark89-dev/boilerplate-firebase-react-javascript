@@ -39,7 +39,7 @@ const Tweet = ({ tweetObj, isOwner }) => {
         <>
           <form onSubmit={onSubmit}>
             <input type="text" placeholder="Edit your tweet" value={newTweet} required onChange={onChange} />
-            <input type="submit" value="Update Nweet"></input>
+            <input type="submit" value="Update Tweet"></input>
             <button onClick={toggleEditing}>Cancel</button>
           </form>
         </>
