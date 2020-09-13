@@ -39,7 +39,9 @@ function App() {
       ) : (
         'Initializing...'
       )}
-      <footer>&copy; {new Date().getFullYear()} Twitter</footer>
+      <div style={{ display: 'flex', justifyContent: 'center', marginTop:50 }}>
+        <footer>&copy; {new Date().getFullYear()} Twitter</footer>
+      </div>
     </>
   );
 }
